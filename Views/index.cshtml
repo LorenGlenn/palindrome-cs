@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Palindrome Checker</title>
+  </head>
+  <body>
+    <div class="container">
+    <h1>Welcome to the Palindrome Checker</h1>
+    <p>Enter a word or sentence in the form below and press to check to find out if it is a palindrome.</p>
+    <form action="/check" method="get">
+      <div class="form-group">
+        <input type="text" name="input-string" placeholder="Enter your sentence" value="">
+      </div>
+      <button type="submit" class="btn btn_default">Check</button>
+    </form>
+    <div>
+      @if (@Model != null)
+      {
+        <p>Result:</p>
+        @if (@Model.GetIsPalindrome())
+        {
+          <p>@Model.GetInputString() is a palindrome!</p>
+        }
+        else
+        {
+          <p>@Model.GetInputString() is <i>not</i> a palindrome!</p>
+        }
+      }
+    </div>
+  </div>
+  </body>
+</html>
